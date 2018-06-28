@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name">我的工作计划</string>
+    <string name="btnAddPlanTitle">新增计划</string>
+    <string name="btnPlanListTitle">计划列表</string>
+    <string name="StrPlanTitle">计划标题</string>
+    <string name="StrPlanContent">计划内容</string>
+    <string name="StrBeginDate">计划开始时间</string>
+    <string name="StrEndDate">计划结束时间</string>
+    <string name="StrBeginDateOpen">开始时间选择</string>
+    <string name="StrEndDateOpen">结束时间选择</string>
+</resources>
