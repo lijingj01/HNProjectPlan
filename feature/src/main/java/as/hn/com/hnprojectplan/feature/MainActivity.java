@@ -9,6 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.hn.business.Data.ServiceHelper;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //region 加载集合
+//        String strUserCode ="lijingj";
+//        ServiceHelper serviceHelper = new ServiceHelper();
+//        List<ProjectPlanEntity> items = serviceHelper.GetUserProjectPlanList(strUserCode);
+//        TextView txtMessage =(TextView)findViewById(R.id.txtMessage);
+//        txtMessage.setText(String.valueOf( items.size()));
+        //endregion
     }
 
     @Override
@@ -47,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//                    TextView txtMessage =(TextView)findViewById(R.id.txtMessage);
+//        txtMessage.setText("你点击了设置");
+            //打开列表页面
+            Intent intent = new Intent(MainActivity.this, PlanListActivity.class);
+            startActivity(intent);
             return true;
         }
 

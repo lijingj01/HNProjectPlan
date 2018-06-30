@@ -20,6 +20,7 @@ import com.hn.gc.materialdesign.views.ButtonRectangle;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class AddPlanActivity extends AppCompatActivity {
 
@@ -55,6 +56,10 @@ public class AddPlanActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplan);
+
+//        String strUserCode ="lijingj";
+//        ServiceHelper serviceHelper = new ServiceHelper();
+//        List<ProjectPlanEntity> items = serviceHelper.GetUserProjectPlanList(strUserCode);
 
         //region 日期操作方法
         EditText editText = (EditText) findViewById(R.id.editText);

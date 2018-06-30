@@ -16,6 +16,7 @@ public class Card extends CustomView {
     int paddingTop, paddingBottom, paddingLeft, paddingRight;
     int backgroundColor = Color.parseColor("#FFFFFF");
 
+
     public Card(Context context, AttributeSet attrs) {
         super(context, attrs);
         setAttributes(attrs);
