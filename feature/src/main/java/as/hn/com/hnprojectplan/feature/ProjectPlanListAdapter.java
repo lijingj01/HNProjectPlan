@@ -117,7 +117,7 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
 
     void showNewsDetail(int pos) {
         ProjectPlanEntity entity = mDataList.get(pos);
-//        NewsDetailActivity.actionStart(mContext, entity.getNewsID(), entity.getRecommendAmount(), entity.getCommentAmount());
+//        PlanViewActivity.actionStart(mContext, entity.getNewsID(), entity.getRecommendAmount(), entity.getCommentAmount());
     }
 
     /**
@@ -130,7 +130,7 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
         ImageView newsIcon;
         CircleProgressView mCircleBar;
 
-        public NormalItemHolder(View itemView) {
+        public NormalItemHolder(final View itemView) {
             super(itemView);
             cardView = (com.hn.gc.materialdesign.views.Card) itemView.findViewById(R.id.card_view);
             dateText = (TextView) itemView.findViewById(R.id.base_swipe_item_Date);
@@ -140,7 +140,10 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
 //            itemView.findViewById(R.id.base_swipe_item_container).setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    showNewsDetail(getPosition());
+//                    RecyclerView recyclerView =(RecyclerView) itemView.findViewById(R.id.recyclerView);
+//                    int position = recyclerView.indexOfChild(v);
+////                    getPosition()
+//                    showNewsDetail(position);
 //                }
 //            });
 

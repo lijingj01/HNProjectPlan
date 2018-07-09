@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -10,6 +10,7 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -27,22 +28,18 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!-- 设置Menu菜单的背景色 -->
+        <item name="android:itemBackground">@color/white</item>
+        <!-- 设置Menu菜单的字体颜色 -->
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:fitsSystemWindows">true</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:fitsSystemWindows">true</item>-->
+        <!-- 设置Menu窗口不覆盖Toolbar视图 -->
+        <item name="overlapAnchor">false</item>
     </style>
 
 
-    <!--<style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-    <!--<item name="colorControlNormal">@color/black</item>-->
-    <!--<span style="white-space:pre"></span>-->
-    <!--<item name="android:actionBarSize">46dp</item>-->
-    <!--</style>-->
-
-    <!--<style name="toolbar_blue_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-    <!--<item name="colorControlNormal">@color/blue</item>-->
-    <!--<item name="android:actionBarSize">46dp</item>-->
-    <!--</style>-->
 </resources>

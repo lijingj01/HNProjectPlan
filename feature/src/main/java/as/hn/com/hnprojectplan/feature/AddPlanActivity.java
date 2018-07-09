@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -22,7 +25,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class AddPlanActivity extends AppCompatActivity {
+public class AddPlanActivity extends MyActivityBase {
 
     //region 日期选择的相关方法
     private TextWatcher watcher = new TextWatcher() {
@@ -56,6 +59,10 @@ public class AddPlanActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addplan);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        String strUserCode ="lijingj";
 //        ServiceHelper serviceHelper = new ServiceHelper();
@@ -201,5 +208,39 @@ public class AddPlanActivity extends AppCompatActivity {
             editText.setText(year + "-" +
                     (month + 1) + "-" + dayOfMonth);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+
+            //打开列表页面
+            Intent intent = new Intent(AddPlanActivity.this, PlanListActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_login) {
+            //打开登陆页面
+            Intent intent = new Intent(AddPlanActivity.this, LoginActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == android.R.id.home) {
+            //打开主页
+            Intent intent = new Intent(AddPlanActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,13 +1,17 @@
 package as.hn.com.hnprojectplan.feature;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
-public class PlanViewActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class PlanViewActivity extends MyActivityBase {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +20,20 @@ public class PlanViewActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        //region 加载数据
+        TextView base_swipe_item_Date = (TextView) findViewById(R.id.base_swipe_item_Date);
+        TextView base_swipe_item_Title = (TextView) findViewById(R.id.base_swipe_item_title);
+        TextView plan_info_desc = (TextView) findViewById(R.id.plan_info_desc);
+
+        Intent intent = getIntent();
+        ProjectPlanEntity entity = (ProjectPlanEntity) intent.getSerializableExtra("plan");
+
+        base_swipe_item_Date.setText(entity.GetPublishDate());
+        base_swipe_item_Title.setText(entity.getPlanTitle());
+        plan_info_desc.setText(entity.getPlanContent());
+        //endregion
+
     }
 
 }

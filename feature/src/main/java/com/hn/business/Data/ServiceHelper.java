@@ -14,6 +14,8 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,29 @@ public class ServiceHelper {
     private String nameSpace = "http://tempuri.org/";
     private String endPoint = "https://ihomeapptest3.nw-sc.com:8034/DataService.asmx";
     private String UserCode = "lijingj";
+
+    private static final char HEX_DIGITS[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    public static String toHexString(byte[] b) { //String to byte
+        StringBuilder sb = new StringBuilder(b.length * 2);
+        for (int i = 0; i < b.length; i++) {
+            sb.append(HEX_DIGITS[(b[i] & 0xf0) >>> 4]);
+            sb.append(HEX_DIGITS[b[i] & 0x0f]);
+        }
+        return sb.toString();
+    }
+
+    public String mmd5(String s) {
+        try { // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+            return toHexString(messageDigest);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
     public boolean AddPlanEntity(ProjectPlanEntity item) {
 
@@ -136,5 +161,49 @@ public class ServiceHelper {
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public boolean UserLoginSystem(String strUserCode, String strUserPwd) {
+        boolean isLogin = false;
+        String soapAction = "http://tempuri.org//UserLogin /";
+        // 命名空间     String nameSpace = "http://tempuri.org/";
+        // 调用的方法名称     String methodName = "HelloWorld";
+        // EndPoint     String endPoint = "http://192.168.16.39:1215/WebService.asmx";
+        // SOAP Action     String soapAction = "http://tempuri.org//HelloWorld/";
+        // 指定WebService的命名空间和调用的方法名
+        String methodName = "UserLogin";
+        SoapObject rpc = new SoapObject(nameSpace, methodName);
+
+        String strMD5PWd = mmd5(strUserPwd);
+        // 设置需调用WebService接口需要传入的参数
+        rpc.addProperty("strUserCode", strUserCode);
+        rpc.addProperty("strPwdCode", strMD5PWd);
+
+        // 生成调用WebService方法的SOAP请求信息,并指定SOAP的版本
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
+        envelope.bodyOut = rpc;
+
+        // 设置是否调用的是dotNet开发的WebService
+        envelope.dotNet = true;
+        (new MarshalBase64()).register(envelope);
+
+        // 等价于envelope.bodyOut = rpc;
+        envelope.setOutputSoapObject(rpc);
+        HttpTransportSE transport = new HttpTransportSE(endPoint);
+        transport.debug = true;
+        try {
+
+            // 调用WebService
+            transport.call(soapAction, envelope);
+            if (envelope.getResponse() != null) {
+//
+                String strReturn = envelope.getResponse().toString();
+                isLogin = strReturn.equals("1");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return isLogin;
     }
 }
