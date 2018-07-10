@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -17,13 +16,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.hn.business.Data.ProjectPlanEntity;
 import com.hn.business.Data.ServiceHelper;
 import com.hn.gc.materialdesign.views.ButtonRectangle;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class AddPlanActivity extends MyActivityBase {
 
@@ -140,7 +139,7 @@ public class AddPlanActivity extends MyActivityBase {
                 item.setBeginDate(dtBegin);
                 item.setEndDate(dtEnd);
                 //默认进度0
-                item.setProgressIndex(0);
+//                item.setTimeUsePercentage(0);
 
                 //region 将数据保存到数据库里面
 //                ProjectPlanDbAdapter dbHelper = new ProjectPlanDbAdapter(AddPlanActivity.this);

@@ -1,4 +1,4 @@
-package as.hn.com.hnprojectplan.feature;
+package com.hn.business.Data;
 
 import com.hn.gc.materialdesign.Date.ConvertDate;
 
@@ -15,19 +15,30 @@ public class ProjectPlanEntity implements Serializable {
     private String PlanContent;
     private Date BeginDate;
     private Date EndDate;
-    private int ProgressIndex;
+    private boolean IsEnd;
+    private int EndPercentage;
+    private int TimeUsePercentage;
+    private String UserCode;
+    private Date AddTime;
 
     public ProjectPlanEntity() {
     }
 
-    public ProjectPlanEntity(int mId, String mTitle, String mContent, String mBdate, String mEdate, int iProgressIndex) {
+    public ProjectPlanEntity(int mId, String mTitle, String mContent, String mBdate
+            , String mEdate, boolean isEnd, int iEndPercentage, int iTimeUsePercentage
+            , String strUserCode, String mAddTime
+    ) {
         this.PlanId = mId;
         this.PlanTitle = mTitle;
         this.PlanContent = mContent;
 
         this.BeginDate = ConvertDate.StrToSmallDate(mBdate);
         this.EndDate = ConvertDate.StrToSmallDate(mEdate);
-        this.ProgressIndex = iProgressIndex;
+        this.IsEnd = isEnd;
+        this.EndPercentage = iEndPercentage;
+        this.TimeUsePercentage = iTimeUsePercentage;
+        this.UserCode = strUserCode;
+        this.AddTime = ConvertDate.StrToSmallDate(mAddTime);
     }
 
     public int getPlanId() {
@@ -70,13 +81,7 @@ public class ProjectPlanEntity implements Serializable {
         EndDate = endDate;
     }
 
-    public int getProgressIndex() {
-        return ProgressIndex;
-    }
 
-    public void setProgressIndex(int endIndex) {
-        ProgressIndex = endIndex;
-    }
     //endregion
 
     /**
@@ -101,5 +106,45 @@ public class ProjectPlanEntity implements Serializable {
     public String GetEndDateString() {
         Format f = new SimpleDateFormat("yyyy-MM-dd");
         return f.format(EndDate).toString();
+    }
+
+    public boolean isEnd() {
+        return IsEnd;
+    }
+
+    public void setEnd(boolean end) {
+        IsEnd = end;
+    }
+
+    public int getEndPercentage() {
+        return EndPercentage;
+    }
+
+    public void setEndPercentage(int endPercentage) {
+        EndPercentage = endPercentage;
+    }
+
+    public int getTimeUsePercentage() {
+        return TimeUsePercentage;
+    }
+
+    public void setTimeUsePercentage(int timeUsePercentage) {
+        TimeUsePercentage = timeUsePercentage;
+    }
+
+    public String getUserCode() {
+        return UserCode;
+    }
+
+    public void setUserCode(String userCode) {
+        UserCode = userCode;
+    }
+
+    public Date getAddTime() {
+        return AddTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        AddTime = addTime;
     }
 }

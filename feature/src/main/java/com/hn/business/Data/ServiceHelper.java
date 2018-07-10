@@ -1,13 +1,8 @@
 package com.hn.business.Data;
 
-import android.content.Context;
-import android.security.NetworkSecurityPolicy;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.MarshalBase64;
 import org.ksoap2.serialization.SoapObject;
@@ -18,9 +13,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-
-import as.hn.com.hnprojectplan.feature.MainActivity;
-import as.hn.com.hnprojectplan.feature.ProjectPlanEntity;
 
 /*远程服务调用类
  * */
@@ -152,8 +144,13 @@ public class ServiceHelper {
                 String strContent = jsonObject.getString("PlanContent");
                 String strBDate = jsonObject.getString("PlanBeginDate");
                 String strEDate = jsonObject.getString("PlanEndDate");
+                boolean isEnd = jsonObject.getBoolean("IsEnd");
+                int iEndPercentage = jsonObject.getInt("EndPercentage");
+                int iTimeUsePercentage = jsonObject.getInt("TimeUsePercentage");
+                String strUserCode = jsonObject.getString("UserCode");
+                String strAddTime = jsonObject.getString("AddTime");
                 int pIndex = (i + 1) * 10;
-                ProjectPlanEntity item = new ProjectPlanEntity(iId, strTitle, strContent, strBDate, strEDate, pIndex);
+                ProjectPlanEntity item = new ProjectPlanEntity(iId, strTitle, strContent, strBDate, strEDate, isEnd, iEndPercentage, iTimeUsePercentage, strUserCode, strAddTime);
 
                 items.add(item);
             }

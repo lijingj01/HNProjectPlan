@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hn.business.Data.ProjectPlanEntity;
 import com.hn.gc.materialdesign.views.CircleProgressView;
 
 import java.util.List;
@@ -109,9 +110,9 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
 
         planDate.setText(entity.GetPublishDate());
         planTitle.setText(entity.getPlanTitle());
-        mCircleBar.setProgress(entity.getProgressIndex());
-        mCircleBar.setmTxtHint1("完成了");
-        mCircleBar.setmTxtHint2("的任务");
+        mCircleBar.setProgress(entity.getTimeUsePercentage());
+        mCircleBar.setmTxtHint1("使用了");
+        mCircleBar.setmTxtHint2("的时间");
     }
 
 

@@ -3,6 +3,7 @@ package as.hn.com.hnprojectplan.feature;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
@@ -197,6 +198,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (serviceHelper.UserLoginSystem(email, password)) {
                 showProgress(false);
                 mEmailView.setText("登录成功！");
+                //回到主页
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             } else {
                 showProgress(false);
                 mEmailView.setError("登录失败，账号密码错误！");

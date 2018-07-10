@@ -2,14 +2,10 @@ package as.hn.com.hnprojectplan.feature;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.hn.business.Data.ProjectPlanEntity;
 
 public class PlanViewActivity extends MyActivityBase {
 
@@ -22,8 +18,8 @@ public class PlanViewActivity extends MyActivityBase {
 
 
         //region 加载数据
-        TextView base_swipe_item_Date = (TextView) findViewById(R.id.base_swipe_item_Date);
-        TextView base_swipe_item_Title = (TextView) findViewById(R.id.base_swipe_item_title);
+        TextView base_swipe_item_Date = (TextView) findViewById(R.id.plan_info_date);
+        TextView base_swipe_item_Title = (TextView) findViewById(R.id.plan_info_title);
         TextView plan_info_desc = (TextView) findViewById(R.id.plan_info_desc);
 
         Intent intent = getIntent();
