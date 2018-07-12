@@ -18,4 +18,5 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_add_percentage">新增计划完成进度信息</string>
 </resources>

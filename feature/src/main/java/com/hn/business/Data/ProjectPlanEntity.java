@@ -20,6 +20,7 @@ public class ProjectPlanEntity implements Serializable {
     private int TimeUsePercentage;
     private String UserCode;
     private Date AddTime;
+    private Date EndTime;
 
     public ProjectPlanEntity() {
     }
@@ -146,5 +147,13 @@ public class ProjectPlanEntity implements Serializable {
 
     public void setAddTime(Date addTime) {
         AddTime = addTime;
+    }
+
+    public Date getEndTime() {
+        return EndTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        EndTime = endTime;
     }
 }

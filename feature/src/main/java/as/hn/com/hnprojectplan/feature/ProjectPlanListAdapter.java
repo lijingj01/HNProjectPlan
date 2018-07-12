@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,6 +80,19 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
                 context.startActivity(intent);
             }
         });
+
+        //新增进度
+
+//        viewHolder..setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                ProjectPlanEntity entity = mDataList.get(j);
+//                Intent intent = new Intent(context, PlanViewActivity.class);
+//                intent.putExtra("plan", entity);
+//                context.startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -130,6 +144,8 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
         com.hn.gc.materialdesign.views.Card cardView;
         ImageView newsIcon;
         CircleProgressView mCircleBar;
+        Button btnAdd;
+        Button btnView;
 
         public NormalItemHolder(final View itemView) {
             super(itemView);
@@ -137,6 +153,8 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
             dateText = (TextView) itemView.findViewById(R.id.base_swipe_item_Date);
             planTitle = (TextView) itemView.findViewById(R.id.base_swipe_item_title);
             mCircleBar = (CircleProgressView) itemView.findViewById(R.id.circleProgressbar);
+//            btnAdd =(Button)itemView.findViewById(R.id.btn_add_percentage);
+//            btnView = (Button)itemView.findViewById(R.id.btn_view_percentage);
 //            newsIcon = (ImageView) itemView.findViewById(R.id.base_swipe_item_icon);
 //            itemView.findViewById(R.id.base_swipe_item_container).setOnClickListener(new View.OnClickListener() {
 //                @Override

@@ -52,6 +52,31 @@
                 android:layout_below="@+id/plan_header"
                 android:layout_margin="15dp"
                 android:lineSpacingExtra="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/plan_info_desc"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_add_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#00000000"
+                    android:text="新增进度" />
+
+                <Button
+                    android:id="@+id/btn_view_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:text="查看进度"
+                    android:textColor="#7AD3E0" />
+            </LinearLayout>
+
         </RelativeLayout>
     </com.hn.gc.materialdesign.views.Card>
 
