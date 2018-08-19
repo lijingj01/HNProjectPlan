@@ -195,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             //region 去服务器验证身份
             ServiceHelper serviceHelper = new ServiceHelper();
-            if (serviceHelper.UserLoginSystem(email, password)) {
+            if (serviceHelper.UserLoginSystem(email, password, LoginActivity.this)) {
                 showProgress(false);
                 mEmailView.setText("登录成功！");
                 //回到主页

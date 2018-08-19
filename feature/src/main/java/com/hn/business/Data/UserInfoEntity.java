@@ -6,17 +6,31 @@ public class UserInfoEntity {
     private String UserCode;
     private String UserName;
     private String NickName;
+    private String PwdCode;
+    private String WXCode;
+    private String MobilePhone;
 
     public UserInfoEntity() {
 
     }
 
-    public UserInfoEntity(int Id, String strUserCode, String strUserName, String strNickName) {
+    public UserInfoEntity(int Id, String strUserCode, String strUserName, String strNickName, String strPwdCode) {
         this.Id = Id;
         this.UserCode = strUserCode;
         this.UserName = strUserName;
         this.NickName = strNickName;
+        this.PwdCode = strPwdCode;
     }
+
+    public boolean UserIsLogin() {
+        //判断用户是否登陆
+        boolean isLogin = true;
+        if (this.UserCode == null || this.UserCode.isEmpty()) {
+            isLogin = false;
+        }
+        return isLogin;
+    }
+
 
     public int getId() {
         return Id;
@@ -49,5 +63,29 @@ public class UserInfoEntity {
 
     public void setNickName(String nickName) {
         NickName = nickName;
+    }
+
+    public String getPwdCode() {
+        return PwdCode;
+    }
+
+    public void setPwdCode(String pwdCode) {
+        PwdCode = pwdCode;
+    }
+
+    public String getWXCode() {
+        return WXCode;
+    }
+
+    public void setWXCode(String WXCode) {
+        this.WXCode = WXCode;
+    }
+
+    public String getMobilePhone() {
+        return MobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        MobilePhone = mobilePhone;
     }
 }

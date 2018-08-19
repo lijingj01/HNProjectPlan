@@ -45,7 +45,8 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="72dp">
+                android:layout_height="72dp"
+                android:layout_marginLeft="24dp">
 
                 <TextView
                     android:id="@+id/txtPlanTitle"
@@ -78,7 +79,9 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="72dp">
+                android:layout_height="72dp"
+
+                >
 
                 <com.hn.gc.materialdesign.views.Slider
                     android:id="@+id/endPercentage"
@@ -117,7 +120,7 @@
                 android:layout_height="72dp">
 
                 <EditText
-                    android:id="@+id/txt"
+                    android:id="@+id/txtRemark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"

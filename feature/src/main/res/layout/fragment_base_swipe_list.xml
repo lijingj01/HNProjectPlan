@@ -23,7 +23,9 @@
             android:layout_height="match_parent"
             android:padding="5dp">
 
-            <TableRow android:layout_marginBottom="5dp">
+            <TableRow android:layout_marginBottom="5dp"
+
+                >
 
                 <TextView
                     android:id="@+id/base_swipe_item_Date"
@@ -32,18 +34,28 @@
                     android:layout_weight="1"
                     android:gravity="left|center_vertical"
                     android:textColor="@color/black"
+                    android:layout_span="3"
                     android:textSize="10sp" />
             </TableRow>
 
             <TableRow android:layout_marginTop="5dp">
 
+                <com.hn.gc.materialdesign.views.CircleProgressView
+                    android:id="@+id/endPercentage"
+                    android:layout_width="74dp"
+                    android:layout_height="74dp" />
+
                 <TextView
                     android:id="@+id/base_swipe_item_title"
                     android:layout_width="wrap_content"
                     android:layout_height="80dp"
+                    android:layout_gravity="left"
                     android:layout_weight="1"
-                    android:gravity="left|center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
                     android:textColor="@color/black"
+                    android:paddingRight="8dp"
+                    android:text="SSSSSSSSSSSSS "
                     android:textSize="12sp" />
 
                 <com.hn.gc.materialdesign.views.CircleProgressView
@@ -51,7 +63,6 @@
                     android:layout_width="74dp"
                     android:layout_height="74dp"
                     android:layout_centerInParent="true" />
-
 
             </TableRow>
 

@@ -58,23 +58,23 @@ public class UserDbAdapter {
 
     //endregion
 
-    public UserInfoEntity fetchUserInfoById(int id) {
-        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID, COL_USERCODE, COL_USERNAME, COL_NICKNAME}
-                , COL_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-
-        UserInfoEntity item = new UserInfoEntity(
-                cursor.getInt(cursor.getColumnIndex(COL_ID))
-                , cursor.getString(cursor.getColumnIndex(COL_USERCODE))
-                , cursor.getString(cursor.getColumnIndex(COL_USERNAME))
-                , cursor.getString(cursor.getColumnIndex(COL_NICKNAME))
-        );
-        cursor.close();
-
-        return item;
-    }
+//    public UserInfoEntity fetchUserInfoById(int id) {
+//        Cursor cursor = mDb.query(TABLE_NAME, new String[]{COL_ID, COL_USERCODE, COL_USERNAME, COL_NICKNAME}
+//                , COL_ID + "=?", new String[]{String.valueOf(id)}, null, null, null, null);
+//        if (cursor != null) {
+//            cursor.moveToFirst();
+//        }
+//
+//        UserInfoEntity item = new UserInfoEntity(
+//                cursor.getInt(cursor.getColumnIndex(COL_ID))
+//                , cursor.getString(cursor.getColumnIndex(COL_USERCODE))
+//                , cursor.getString(cursor.getColumnIndex(COL_USERNAME))
+//                , cursor.getString(cursor.getColumnIndex(COL_NICKNAME))
+//        );
+//        cursor.close();
+//
+//        return item;
+//    }
 
     public List<UserInfoEntity> fetchAllUserInfo() {
         //获取所有的数据
@@ -84,13 +84,13 @@ public class UserDbAdapter {
         List<UserInfoEntity> items = new ArrayList<>();
         if (cursor != null) {
             while (cursor.moveToNext()) {
-                UserInfoEntity item = new UserInfoEntity(
-                        cursor.getInt(cursor.getColumnIndex(COL_ID))
-                        , cursor.getString(cursor.getColumnIndex(COL_USERCODE))
-                        , cursor.getString(cursor.getColumnIndex(COL_USERNAME))
-                        , cursor.getString(cursor.getColumnIndex(COL_NICKNAME))
-                );
-                items.add(item);
+//                UserInfoEntity item = new UserInfoEntity(
+//                        cursor.getInt(cursor.getColumnIndex(COL_ID))
+//                        , cursor.getString(cursor.getColumnIndex(COL_USERCODE))
+//                        , cursor.getString(cursor.getColumnIndex(COL_USERNAME))
+//                        , cursor.getString(cursor.getColumnIndex(COL_NICKNAME))
+//                );
+//                items.add(item);
             }
             cursor.close();
         }

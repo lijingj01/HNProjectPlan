@@ -20,7 +20,56 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_plan_view" />
+    <!--<TableLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent">-->
 
+    <!--<TableRow>-->
+
+    <include layout="@layout/content_plan_view" />
+    <!--</TableRow>-->
+
+    <!--<TableRow>-->
+    <include layout="@layout/content_plan_viewend" />
+    <!--</TableRow>-->
+    <!--</TableLayout>-->
 
 </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

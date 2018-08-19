@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.hn.business.Data.ServiceHelper;
@@ -25,6 +27,11 @@ public class MainActivity extends MyActivityBase {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        WebView myWebView = (WebView) findViewById(R.id.webView);
+        myWebView.loadUrl("https://ihomeapptest3.nw-sc.com:8034/demo/main.html");
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
         //region 加载集合
 //        String strUserCode ="lijingj";
@@ -55,8 +62,6 @@ public class MainActivity extends MyActivityBase {
             Intent intent = new Intent(MainActivity.this, AddPlanActivity.class);
             startActivity(intent);
         } else if (id == R.id.action_settings) {
-//                    TextView txtMessage =(TextView)findViewById(R.id.txtMessage);
-//        txtMessage.setText("你点击了设置");
             //打开列表页面
             Intent intent = new Intent(MainActivity.this, PlanListActivity.class);
             startActivity(intent);

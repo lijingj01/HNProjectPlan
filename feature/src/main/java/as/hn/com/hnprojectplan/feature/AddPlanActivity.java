@@ -150,7 +150,7 @@ public class AddPlanActivity extends MyActivityBase {
 
                 //region 将数据写入webservice
                 ServiceHelper serviceHelper = new ServiceHelper();
-                serviceHelper.AddPlanEntity(item);
+                serviceHelper.AddPlanEntity(item, getMyUser().getUserCode());
                 //endregion
 
                 //跳转进入列表页

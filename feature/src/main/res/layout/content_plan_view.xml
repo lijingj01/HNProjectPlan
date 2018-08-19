@@ -12,59 +12,101 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/lightcyan"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground">
 
-        <RelativeLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
 
-            <RelativeLayout
-                android:id="@+id/plan_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true">
+            >
+
+            <TableRow>
 
                 <TextView
                     android:id="@+id/plan_info_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_span="2"
                     android:padding="5dp"
                     android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow>
 
                 <TextView
                     android:id="@+id/plan_info_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/plan_info_title"
+                    android:layout_span="2"
                     android:padding="5dp"
                     android:textSize="12sp" />
-            </RelativeLayout>
+            </TableRow>
 
-            <TextView
-                android:id="@+id/plan_info_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/plan_header"
-                android:layout_margin="15dp"
-                android:lineSpacingExtra="5dp" />
+            <TableRow>
 
-            <LinearLayout
+                <TextView
+                    android:id="@+id/plan_info_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/plan_header"
+                    android:layout_margin="15dp"
+                    android:layout_span="2"
+                    android:lineSpacingExtra="5dp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/plan_info_desc"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:stretchColumns="*">
+
+                <!--<TableLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:stretchColumns="*">-->
+
+                <!--<TableRow android:layout_marginTop="5dp">-->
+
+                <com.hn.gc.materialdesign.views.CircleProgressView
+                    android:id="@+id/endPercentage"
+                    android:layout_width="1dip"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="40dp" />
+
+                <com.hn.gc.materialdesign.views.CircleProgressView
+                    android:id="@+id/circleProgressbar"
+                    android:layout_width="1dip"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="40dp" />
+                <!--</TableRow>-->
+                <!--</TableLayout>-->
+            </TableRow>
+
+
+            <TableRow android:layout_marginTop="10dp">
+
+                <!--<TableLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:stretchColumns="*"-->
+                <!--android:padding="5dp">-->
+
+                <!--<TableRow android:layout_marginTop="5dp">-->
 
                 <Button
                     android:id="@+id/btn_add_percentage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
                     android:background="#00000000"
                     android:text="新增进度" />
 
@@ -75,9 +117,11 @@
                     android:background="#00000000"
                     android:text="查看进度"
                     android:textColor="#7AD3E0" />
-            </LinearLayout>
+                <!--</TableRow>-->
+                <!--</TableLayout>-->
+            </TableRow>
 
-        </RelativeLayout>
+        </TableLayout>
     </com.hn.gc.materialdesign.views.Card>
 
 </RelativeLayout>

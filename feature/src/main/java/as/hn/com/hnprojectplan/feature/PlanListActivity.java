@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.hn.business.Data.PlanPercentageEntity;
 import com.hn.business.Data.ProjectPlanEntity;
 import com.hn.business.Data.ServiceHelper;
 
@@ -35,15 +36,16 @@ public class PlanListActivity extends MyActivityBase {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         //加载数据集合
 
-        String strUserCode = "lijingj";
         ServiceHelper serviceHelper = new ServiceHelper();
-        planList = serviceHelper.GetUserProjectPlanList(strUserCode);
+        planList = serviceHelper.GetUserProjectPlanList(getMyUser().getUserCode());
 
         adapter = new ProjectPlanListAdapter(planList, PlanListActivity.this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+
     }
 
     @Override

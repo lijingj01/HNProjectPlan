@@ -2,10 +2,12 @@ package com.hn.business.Data;
 
 import com.hn.gc.materialdesign.Date.ConvertDate;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //计划进度实体类
-public class PlanPercentage {
+public class PlanPercentageEntity {
 
     //region 内部属性
     private int Id;
@@ -18,11 +20,19 @@ public class PlanPercentage {
     //endregion
 
     //region 构造函数
-    public PlanPercentage() {
+    public PlanPercentageEntity() {
 
     }
 
-    public PlanPercentage(int id, int iPlanId, String mAddTime, String strUserCode, int iEndPercentage, boolean isEnd, String strRemark) {
+    public PlanPercentageEntity(int iPlanId, String strUserCode, int iEndPercentage, boolean isEnd, String strRemark) {
+        this.PlanId = iPlanId;
+        this.UserCode = strUserCode;
+        this.EndPercentage = iEndPercentage;
+        this.IsEnd = isEnd;
+        this.Remark = strRemark;
+    }
+
+    public PlanPercentageEntity(int id, int iPlanId, String mAddTime, String strUserCode, int iEndPercentage, boolean isEnd, String strRemark) {
         this.Id = id;
         this.PlanId = iPlanId;
         this.AddTime = ConvertDate.StrToSmallDate(mAddTime);
@@ -88,6 +98,15 @@ public class PlanPercentage {
 
     public void setRemark(String remark) {
         Remark = remark;
+    }
+
+    public String GetAddTimeString() {
+        Format f = new SimpleDateFormat("yyyy年MM月dd日");
+        StringBuilder strText = new StringBuilder();
+
+        strText.append(f.format(AddTime));
+
+        return strText.toString();
     }
 
     //endregion

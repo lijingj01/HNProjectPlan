@@ -68,7 +68,7 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
             return;
 
         NormalItemHolder holder = (NormalItemHolder) viewHolder;
-        bindNormalItem(entity, holder.planTitle, holder.dateText, holder.mCircleBar);
+        bindNormalItem(entity, holder.planTitle, holder.dateText, holder.mCircleBar, holder.mPercentageBar);
 
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,18 +81,6 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
             }
         });
 
-        //新增进度
-
-//        viewHolder..setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                ProjectPlanEntity entity = mDataList.get(j);
-//                Intent intent = new Intent(context, PlanViewActivity.class);
-//                intent.putExtra("plan", entity);
-//                context.startActivity(intent);
-//            }
-//        });
     }
 
     @Override
@@ -120,13 +108,18 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
         return mDataList.get(position).getPlanId();
     }
 
-    void bindNormalItem(ProjectPlanEntity entity, TextView planTitle, TextView planDate, CircleProgressView mCircleBar) {
+    void bindNormalItem(ProjectPlanEntity entity, TextView planTitle, TextView planDate, CircleProgressView mCircleBar, CircleProgressView mPercentageBar) {
 
         planDate.setText(entity.GetPublishDate());
         planTitle.setText(entity.getPlanTitle());
+
         mCircleBar.setProgress(entity.getTimeUsePercentage());
         mCircleBar.setmTxtHint1("使用了");
         mCircleBar.setmTxtHint2("的时间");
+
+        mPercentageBar.setProgress(entity.getEndPercentage());
+        mPercentageBar.setmTxtHint1("已完成");
+        mPercentageBar.setmTxtHint2("工作量");
     }
 
 
@@ -144,6 +137,7 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
         com.hn.gc.materialdesign.views.Card cardView;
         ImageView newsIcon;
         CircleProgressView mCircleBar;
+        CircleProgressView mPercentageBar;
         Button btnAdd;
         Button btnView;
 
@@ -153,6 +147,7 @@ public class ProjectPlanListAdapter extends RecyclerView.Adapter<ProjectPlanList
             dateText = (TextView) itemView.findViewById(R.id.base_swipe_item_Date);
             planTitle = (TextView) itemView.findViewById(R.id.base_swipe_item_title);
             mCircleBar = (CircleProgressView) itemView.findViewById(R.id.circleProgressbar);
+            mPercentageBar = (CircleProgressView) itemView.findViewById(R.id.endPercentage);
 //            btnAdd =(Button)itemView.findViewById(R.id.btn_add_percentage);
 //            btnView = (Button)itemView.findViewById(R.id.btn_view_percentage);
 //            newsIcon = (ImageView) itemView.findViewById(R.id.base_swipe_item_icon);

@@ -1,11 +1,15 @@
 package as.hn.com.hnprojectplan.feature;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.hn.business.Data.ServiceHelper;
+import com.hn.business.Data.UserInfoEntity;
 
 public class MyActivityBase extends AppCompatActivity {
 
@@ -21,6 +25,8 @@ public class MyActivityBase extends AppCompatActivity {
     /***是否显示标题栏*/
 
     private boolean isshowstate = true;
+
+    private UserInfoEntity MyUser;
 
     @Override
 
@@ -54,7 +60,15 @@ public class MyActivityBase extends AppCompatActivity {
         //设置数据
 
 //        initData();
-
+        //region 初始化登陆
+        ServiceHelper serviceHelper = new ServiceHelper();
+        this.MyUser = serviceHelper.LocalToUser(MyActivityBase.this);
+        if (!this.MyUser.UserIsLogin()) {
+            //未成功登陆需要进入登陆界面
+            Intent intent = new Intent(MyActivityBase.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        //endregion
     }
 
 
@@ -165,4 +179,11 @@ public class MyActivityBase extends AppCompatActivity {
     }
 
 
+    public UserInfoEntity getMyUser() {
+        return MyUser;
+    }
+
+    public void setMyUser(UserInfoEntity myUser) {
+        MyUser = myUser;
+    }
 }
